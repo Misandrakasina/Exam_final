@@ -411,8 +411,14 @@
         </p>
 
         <div class="d-flex flex-wrap gap-3">
-          <a href="/products" class="btn btn-primary btn-lg px-5 py-3 fw-medium shadow-sm">
-            Formulaire pour faire un don <i class="bi bi-search ms-2"></i>
+          <a href="/orders" class="btn btn-primary btn-lg px-5 py-3 fw-medium shadow-sm">
+            Formulaire don <i class="bi bi-heart ms-2"></i>
+          </a>
+        </div>
+      
+      <div class="d-flex flex-wrap gap-3">
+          <a href="/help" class="btn btn-primary btn-lg px-5 py-3 fw-medium shadow-sm">
+             Formulaire besoin de chaque ville <i class="bi bi-map ms-2"></i>
           </a>
         </div>
       </div>

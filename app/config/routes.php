@@ -31,6 +31,26 @@ Flight::route('GET /dashboard', function () {
     }
 });
 
+Flight::route('GET /orders', function () {
+    $path = __DIR__ . '/../views/orders.html';
+    header('Content-Type: text/html; charset=utf-8');
+    if (file_exists($path)) {
+        echo file_get_contents($path);
+    } else {
+        echo '<h1>Dashboard introuvable (views/index.php)</h1>';
+    }
+});
+
+Flight::route('GET /help', function () {
+    $path = __DIR__ . '/../views/help.html';
+    header('Content-Type: text/html; charset=utf-8');
+    if (file_exists($path)) {
+        echo file_get_contents($path);
+    } else {
+        echo '<h1>Dashboard introuvable (views/index.php)</h1>';
+    }
+});
+
 // Route pour servir les assets de views/assets/
 Flight::route('GET /views/assets/images/*', function() {
     $uri = Flight::request()->url;
