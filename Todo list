@@ -1,0 +1,55 @@
+
+# 1. Analyse et conception
+-Lire attentivement le sujet et identifier toutes les entités (ville, besoin, don, dispatch)
+- Définir les relations :
+   .une ville a plusieurs besoins
+   .un don peut être dispatché à plusieurs villes ? (probablement un don est affecté à un besoin spécifique)
+-Le dispatch : à la saisie d'un don
+-Lister les pages nécessaires :
+  - Page d'accueil / tableau de bord
+  - Page de gestion des villes
+  - Page de saisie des besoins
+  - Page de saisie des dons
+  - Page de visualisation des dispatches
+- Maquetter rapidement l'interface 
+
+# 2. Base de données
+-Créer le modèle conceptuel: tables `ville`, `besoin`, `don`, `dispatch`
+-Définir les champs :
+  - `ville` : id, nom
+  - `besoin` : id, id_ville, type (nature, matériaux, argent), libellé (riz, huile...), prix_unitaire, quantite_demandee, date_saisie
+  - `don` : id, type (nature, matériaux, argent), libellé, quantite_totale, date_don
+  - `attribution` : id, id_besoin, id_don, quantite_attribute, date_attribution
+-Prévoir les contraintes d'intégrité (clés étrangères, types)
+-Écrire le script SQL de création des tables
+
+# 3. Backend (API / logique métier)
+-Créer les modèles et les contrôleurs pour chaque entité
+-Implémenter les routes:
+  - Villes : liste, ajout (si nécessaire)
+  - Besoins : ajout, modification (quantité), suppression, liste filtrée par ville
+  - Dons : ajout, liste
+  - Attributions : exécution du dispatch, consultation
+-Écrire l'algorithme de dispatch :
+  - Récupérer tous les besoins non entièrement satisfaits, triés par date croissante
+  - Pour chaque don entrant (ou via bouton "Dispatcher"), parcourir les besoins dans l'ordre et affecter la quantité disponible jusqu'à épuisement du don ou satisfaction des besoins
+  - Enregistrer chaque attribution avec la date courante
+-Gérer les cas particuliers : dons en argent (pas de prix unitaire ?), conversion ? (à préciser)
+
+# 4. Frontend (pages web)
+-Créer la mise en page de base (HTML, CSS, template)
+-Page Tableau de bord :
+  - Afficher la liste des villes
+  - Pour chaque ville : total des besoins (en valeur ou quantité), total des dons attribués, reste à couvrir
+  - Possibilité de filtrer par ville ou type de besoin
+-Page Saisie des besoins :
+  - Formulaire avec choix de la ville (liste déroulante), type, libellé, prix unitaire, quantité
+  - Bouton Enregistrer
+-Page Saisie des dons :
+  - Formulaire avec type, libellé, quantité, date du don (par défaut aujourd'hui)
+  - Option : déclencher automatiquement le dispatch après l'ajout (ou bouton séparé)
+-Page Liste des besoins : tableau avec statut (satisfait ou non) et quantité restante
+-Page Liste des dons : tableau avec quantité totale et quantité déjà dispatchée
+-Page Détail d'une ville : voir ses besoins et les attributions reçues
+-Intégrer des messages de succès/erreur
+
