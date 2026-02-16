@@ -1,0 +1,79 @@
+# ────────────────────────────────────────────────
+# Environnements et fichiers sensibles
+# ────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+.env.example            # garde-le si tu veux un modèle, sinon ignore-le aussi
+
+# ────────────────────────────────────────────────
+# Composer
+# ────────────────────────────────────────────────
+vendor/
+composer.phar
+composer.lock           # ← souvent on le garde, mais si vous voulez l’ignorer → décommentez
+
+# ────────────────────────────────────────────────
+# Cache / Logs / Temporaires
+# ────────────────────────────────────────────────
+.cache/
+log/
+logs/
+tmp/
+temp/
+*.log
+*.logs
+
+# ────────────────────────────────────────────────
+# Serveur web / Apache / PHP
+# ────────────────────────────────────────────────
+*.htaccess              # ← décommente si vous n’utilisez pas .htaccess dans le projet
+.DS_Store
+Thumbs.db
+*.bak
+*.swp
+*.swo
+*~
+
+# ────────────────────────────────────────────────
+# IDE / Éditeurs (choisis selon ce que vous utilisez)
+# ────────────────────────────────────────────────
+# VS Code
+.vscode/
+
+# PhpStorm / WebStorm
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# NetBeans
+nbproject/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# ────────────────────────────────────────────────
+# Dépendances front (si vous utilisez npm/yarn)
+# ────────────────────────────────────────────────
+node_modules/
+npm-debug.log
+yarn-error.log
+dist/                   # si vous avez un build front-end
+
+# ────────────────────────────────────────────────
+# Fichiers de base de données locaux (optionnel)
+# ────────────────────────────────────────────────
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+
+# ────────────────────────────────────────────────
+# Fichiers perso ou de test
+# ────────────────────────────────────────────────
+test/
+tests/local/
+ma-note-perso.txt
