@@ -1,0 +1,7 @@
+                    <form action="" method="get">
+                        <p><input type="text" name="Categorie" id="">Categorie:</p>
+                        <p><input type="text" name="Produit" id="">Produit</p>
+                        <p><input type="number" name="Prix" id="">Prix_Unitaire:</p>
+                        <p><input type="number" name="Quantite" id="">Quantité</p>
+                        <p><input type="number" name="Date" id="">Date:</p>
+                    </form>
