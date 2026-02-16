@@ -40,7 +40,7 @@
     <link rel="stylesheet" crossorigin href="/assets/main-BQhM7myw.css">
     <style>
         :root {
-            --bs-primary: #ADD8E6; /* Bleu clair doux */
+            --bs-primary: #e6ccb2; /* Bleu clair doux */
             --bs-primary-rgb: 173, 216, 230;
             --bs-body-bg: #F5F5DC; /* Blanc cassé */
             --bs-body-color: #333333; /* Gris foncé pour contraste */
@@ -58,7 +58,7 @@
         }
         .card {
             background-color: var(--bs-white) !important;
-            border-color: #ADD8E6 !important;
+            border-color: #dda15e !important;
         }
         .btn-primary {
             background-color: #ADD8E6 !important;
@@ -72,13 +72,13 @@
             color: #ADD8E6 !important;
         }
         .bg-primary {
-            background-color: #ADD8E6 !important;
+            background-color: #dda15e !important;
         }
         .bg-light {
             background-color: #FFF8DC !important;
         }
         .border {
-            border-color: #ADD8E6 !important;
+            border-color: #dda15e !important;
         }
         .text-danger {
             color: #FF6347 !important;
@@ -395,7 +395,7 @@
                 </div>
 
 <!-- Portfolio Hero Header - IMAGE QUI REMPLIT VRAIMENT 100% DE LA COLONNE DROITE -->
-<section class="portfolio-hero border-bottom" style="padding: 7rem 0; min-height: 80vh; display: flex; align-items: stretch; background: linear-gradient(135deg, #ADD8E6 0%, #F5F5DC 100%);">
+<section class="portfolio-hero border-bottom" style="padding: 7rem 0; min-height: 80vh; display: flex; align-items: stretch; background: linear-gradient(135deg, #dda15e 0%, #F5F5DC 100%);">
   <div class="container h-100">
     <div class="row align-items-stretch g-0">  <!-- Pas d'espace entre les colonnes -->
 
@@ -427,7 +427,7 @@
       <!-- Colonne image : remplit TOUT (hauteur + largeur) -->
       <div class="col-lg-6 position-relative overflow-hidden" style="min-height: 600px; height: 100%;">
         <img
-          src="/assets/images/dons1.jpeg"
+          src="/assets/images/don2.jpeg"
           alt="Freya Moore artistic portrait"
           class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
           style="object-position: center; z-index: 1;"

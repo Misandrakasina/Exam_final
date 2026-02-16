@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Management - Modern Bootstrap Admin</title>
+    <title>Gestion des Dons - Modern Bootstrap Admin</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Comprehensive order management with tracking, fulfillment, and analytics">
+    <meta name="description" content="Gestion complète des dons avec suivi et analyse">
     <meta name="keywords" content="bootstrap, admin, dashboard, orders, e-commerce, tracking">
 
     <!-- Favicon -->
@@ -16,6 +16,7 @@
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="/assets/manifest-DTaoG9pG.json">
+
 
     <!-- Preload critical fonts -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
@@ -32,10 +33,10 @@
     <link rel="stylesheet" crossorigin href="/assets/main-BQhM7myw.css">
 
     <style>
-        /* Fond global bleu pastel (comme ton image) */
+        /* Fond global blanc cassé */
         body {
-            background-color: #ADD8E6;
-            /* Bleu ciel doux / Light Blue */
+            background-color: #F5F5DC;
+            /* Blanc cassé */
             /* Ou une version un peu plus vive : #81D4FA */
             /* Si tu as une image de fond : background: url('ton-image.jpg') center/cover no-repeat; */
             min-height: 100vh;
@@ -112,6 +113,33 @@
             color: #81d4fa;
             margin-bottom: 1rem;
         }
+
+        /* Template blanc cassé */
+        .admin-wrapper, .admin-header, .admin-sidebar, .admin-main, .admin-footer {
+            background-color: #F5F5DC !important;
+        }
+        .navbar {
+            background-color: #FFF8DC !important;
+        }
+        .sidebar-content {
+            background-color: #F5F5DC !important;
+        }
+        .sidebar-nav .nav-link {
+            color: #333333 !important;
+        }
+        .sidebar-nav .nav-link.active {
+            color: #ADD8E6 !important;
+        }
+               :root {
+            --bs-primary: #e6ccb2; /* Bleu clair doux */
+            --bs-primary-rgb: 173, 216, 230;
+            --bs-body-bg: #F5F5DC; /* Blanc cassé */
+            --bs-body-color: #333333; /* Gris foncé pour contraste */
+            --bs-secondary-bg: #FFF8DC; /* Blanc cassé plus clair */
+            --bs-light: #FFF8DC;
+            --bs-white: #FFFFFF;
+            --bs-danger: #FF6347; /* Rouge orangé */
+        } 
     </style>
 </head>
 
@@ -125,10 +153,10 @@
                 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
                     <div class="container-fluid">
                         <!-- Logo/Brand -->
-                        <a class="navbar-brand d-flex align-items-center" href="./index">
-                            <img src="/assets/images/logo.svg" alt="Logo" height="32"
+                        <a class="navbar-brand d-flex align-items-center" href="/index">
+                            <img src="/assets/images/bngrclogo.png"  height="32"
                                 class="d-inline-block align-text-top me-2">
-                            <h1 class="h4 mb-0 fw-bold text-primary">Metis</h1>
+                            <h1 class="h4 mb-0 fw-bold text-primary">BNGRC</h1>
                         </a>
 
                         <!-- Sidebar Toggle -->
@@ -408,8 +436,8 @@
                     <!-- Page Header -->
                     <div class="d-flex justify-content-between align-items-center mb-4 mb-lg-5">
                         <div>
-                            <h1 class="h3 mb-0">Don Management</h1>
-                            <p class="text-muted mb-0">Faites un don pour soutenir notre cause</p>
+                            <h1 class="h3 mb-0" style="color: #1a1a1a; font-weight: 700;">Gestion des Dons</h1>
+                            <p class="mb-0" style="color: #555555;">Faites un don pour soutenir notre cause</p>
                         </div>
 
                     </div>
@@ -424,6 +452,7 @@
                         <p class="mb-4">Fill in the form below to send us a message:</p>
 
                         <form>
+
                             <div class="mb-3">
                                 <label for="Categorie" class="form-label visually-hidden">Categorie</label>
                                 <input type="text" class="form-control" name="categorie" id="Categorie" placeholder="Categorie..." required>
@@ -448,7 +477,7 @@
                                 <label for="date_dons" class="form-label visually-hidden">Date_dons</label>
                                 <input type="text" class="form-control" name="date_dons" id="date_dons" placeholder="Date des dons..." required>
                             </div>
-                            <button type="submit" class="btn btn-send w-100">Donnez</button>
+                            <button type="submit" class="btn btn-send w-100">Enregistrer</button>
                         </form>
                     </div>
             </main>

@@ -32,12 +32,12 @@ Flight::route('GET /dashboard', function () {
 });
 
 Flight::route('GET /orders', function () {
-    $path = __DIR__ . '/../views/orders.html';
+    $path = __DIR__ . '/../views/orders.php';
     header('Content-Type: text/html; charset=utf-8');
     if (file_exists($path)) {
-        echo file_get_contents($path);
+        include $path;
     } else {
-        echo '<h1>Dashboard introuvable (views/index.php)</h1>';
+        echo '<h1>Page introuvable (views/orders.php)</h1>';
     }
 });
 
@@ -87,7 +87,11 @@ Flight::route('GET /@page', function ($page) {
         $path = __DIR__ . '/../views/' . $page . $ext;
         if (file_exists($path)) {
             header('Content-Type: text/html; charset=utf-8');
-            echo file_get_contents($path);
+            if ($ext === '.php') {
+                include $path;
+            } else {
+                echo file_get_contents($path);
+            }
             return;
         }
     }
