@@ -1,0 +1,61 @@
+ 1. Compréhension du projet
+
+* Identifier les entités principales (ville, besoin, don, attribution)
+* Définir comment les dons sont affectés aux besoins
+* Lister les pages de l’application
+* Faire une maquette rapide de l’interface
+
+---
+
+2. Conception de la base de données
+
+* Définir les tables principales
+* Définir les champs de chaque table
+* Définir les relations entre tables
+* Écrire le script SQL de création
+
+---
+
+3. Développement du backend
+
+* Créer les modèles et contrôleurs
+* Programmer l’algorithme de dispatch automatique
+* Gérer les cas particuliers (types de dons)
+
+---
+
+4. Développement du frontend
+
+* Créer la structure générale du site
+* Faire la page tableau de bord
+* Faire la page de saisie des besoins
+* Faire la page de saisie des dons
+* Faire les pages de consultation (besoins, dons, villes, attributions)
+* Ajouter les messages utilisateur
+
+---
+
+5. Fonctionnalités supplémentaires (si temps)
+
+* Ajouter l’authentification
+* Ajouter l’export des données
+* Ajouter des graphiques
+* Gérer la valeur financière des dons
+
+---
+
+6. Tests
+
+* Tester la création des données
+* Tester le dispatch automatique
+* Tester l’affichage du tableau de bord
+* Tester les cas limites
+
+---
+
+7. Déploiement
+
+* Déployer sur le serveur
+* Vérifier le fonctionnement en ligne
+
+
