@@ -1,7 +1,14 @@
-                    <form action="" method="get">
-                        <p><input type="text" name="Categorie" id="">Categorie:</p>
-                        <p><input type="text" name="Produit" id="">Produit</p>
-                        <p><input type="number" name="Prix" id="">Prix_Unitaire:</p>
-                        <p><input type="number" name="Quantite" id="">Quantité</p>
-                        <p><input type="number" name="Date" id="">Date:</p>
-                    </form>
+                   <form action="" method="post">
+                    <p><input type="text" name="Categorie" id="">Categorie</p>
+                    <p><input type="text" name="Dons" id="">Dons</p>
+                    <p><input type="text" name="Quantité" id="">Quantité</p>
+                    <p><input type="text" name="Prix_Unitaire" id="">Prix_Unitaire</p>
+                    <p><input type="text" name="Date_dons" id="">Date_dons</p>
+
+                    <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#orderModal">
+                    <i class="bi bi-plus-lg me-2"></i>Si Argent
+                    </button>
+                    </div>
+                    <p><input type="submit" value="Donnez"></p>
+                   </form>

@@ -258,8 +258,14 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/orders">
-                                <i class="bi bi-bag-check"></i>
-                                <span>Orders</span>
+                                <i class="bi bi-heart ms-2"></i>
+                                <span>Dons</span>
+                            </a>
+                        </li>
+                       <li class="nav-item">
+                            <a class="nav-link" href="/help">
+                                <i class="bi bi-map ms-2"></i>
+                                <span>Help & Support</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -370,12 +376,7 @@
                                 <span>Security</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/help">
-                                <i class="bi bi-question-circle"></i>
-                                <span>Help & Support</span>
-                            </a>
-                        </li>
+
                     </ul>
                 </nav>
             </div>

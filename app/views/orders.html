@@ -1,46 +1,133 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Management - Modern Bootstrap Admin</title>
-    
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="Comprehensive order management with tracking, fulfillment, and analytics">
     <meta name="keywords" content="bootstrap, admin, dashboard, orders, e-commerce, tracking">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg">
     <link rel="icon" type="image/png" href="/assets/icons/favicon.png">
-    
+
     <!-- PWA Manifest -->
     <link rel="manifest" href="/assets/manifest-DTaoG9pG.json">
-    
+
     <!-- Preload critical fonts -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        as="style">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- ApexCharts CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>  <script type="module" crossorigin src="/assets/vendor-bootstrap-C9iorZI5.js"></script>
-  <script type="module" crossorigin src="/assets/vendor-charts-DGwYAWel.js"></script>
-  <script type="module" crossorigin src="/assets/vendor-ui-CflGdlft.js"></script>
-  <script type="module" crossorigin src="/assets/main-B24LRf0x.js"></script>
-  <script type="module" crossorigin src="/assets/orders-Cge2POod.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-BQhM7myw.css">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script type="module" crossorigin src="/assets/vendor-bootstrap-C9iorZI5.js"></script>
+    <script type="module" crossorigin src="/assets/vendor-charts-DGwYAWel.js"></script>
+    <script type="module" crossorigin src="/assets/vendor-ui-CflGdlft.js"></script>
+    <script type="module" crossorigin src="/assets/main-B24LRf0x.js"></script>
+    <script type="module" crossorigin src="/assets/orders-Cge2POod.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-BQhM7myw.css">
+
+    <style>
+        /* Fond global bleu pastel (comme ton image) */
+        body {
+            background-color: #ADD8E6;
+            /* Bleu ciel doux / Light Blue */
+            /* Ou une version un peu plus vive : #81D4FA */
+            /* Si tu as une image de fond : background: url('ton-image.jpg') center/cover no-repeat; */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        /* Conteneur du formulaire avec overlay semi-transparent */
+        .contact-card {
+            background: rgba(0, 0, 0, 0.65);
+            /* Noir semi-transparent (ajuste 0.65 pour plus/moins transparent) */
+            backdrop-filter: blur(8px);
+            /* Effet verre dépoli (optionnel, très joli) */
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 100%;
+            color: white;
+        }
+
+        /* Titres et labels */
+        .contact-card h4,
+        .contact-card label {
+            color: #e0f7fa;
+            /* Bleu très clair pour le texte */
+        }
+
+        /* Champs de formulaire en mode sombre + transparent */
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: white;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+        }
+
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.12);
+            border-color: #4fc3f7;
+            /* Bleu clair accent */
+            box-shadow: 0 0 0 0.25rem rgba(79, 195, 247, 0.25);
+            color: white;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Bouton envoyer */
+        .btn-send {
+            background-color: #4fc3f7;
+            /* Bleu vif mais doux */
+            border: none;
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-send:hover {
+            background-color: #29b6f6;
+            transform: translateY(-2px);
+        }
+
+        /* Icône enveloppe (optionnel) */
+        .envelope-icon {
+            font-size: 3rem;
+            color: #81d4fa;
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 
 <body data-page="orders" class="order-management">
     <!-- Admin App Container -->
     <div class="admin-app">
         <div class="admin-wrapper" id="admin-wrapper">
-            
+
             <!-- Header -->
             <header class="admin-header">
                 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
                     <div class="container-fluid">
                         <!-- Logo/Brand -->
                         <a class="navbar-brand d-flex align-items-center" href="./index">
-                            <img src="/assets/images/logo.svg" alt="Logo" height="32" class="d-inline-block align-text-top me-2">
+                            <img src="/assets/images/logo.svg" alt="Logo" height="32"
+                                class="d-inline-block align-text-top me-2">
                             <h1 class="h4 mb-0 fw-bold text-primary">Metis</h1>
                         </a>
 
@@ -52,23 +139,18 @@
                         <!-- Search Bar with Alpine.js -->
                         <div class="search-container flex-grow-1 mx-4" x-data="searchComponent">
                             <div class="position-relative">
-                                <input type="search" 
-                                       class="form-control" 
-                                       placeholder="Search... (Ctrl+K)"
-                                       x-model="query"
-                                       @input="search()"
-                                       data-search-input
-                                       aria-label="Search">
+                                <input type="search" class="form-control" placeholder="Search... (Ctrl+K)"
+                                    x-model="query" @input="search()" data-search-input aria-label="Search">
                                 <i class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3"></i>
-                                
+
                                 <!-- Search Results Dropdown -->
-                                <div x-show="results.length > 0" 
-                                     x-transition:enter="transition ease-out duration-100"
-                                     x-transition:enter-start="opacity-0 scale-95"
-                                     x-transition:enter-end="opacity-100 scale-100"
-                                     class="position-absolute top-100 start-0 w-100 bg-white border rounded-2 shadow-lg mt-1 z-3">
+                                <div x-show="results.length > 0" x-transition:enter="transition ease-out duration-100"
+                                    x-transition:enter-start="opacity-0 scale-95"
+                                    x-transition:enter-end="opacity-100 scale-100"
+                                    class="position-absolute top-100 start-0 w-100 bg-white border rounded-2 shadow-lg mt-1 z-3">
                                     <template x-for="result in results" :key="result.title">
-                                        <a :href="result.url" class="d-block px-3 py-2 text-decoration-none text-dark border-bottom">
+                                        <a :href="result.url"
+                                            class="d-block px-3 py-2 text-decoration-none text-dark border-bottom">
                                             <div class="d-flex align-items-center">
                                                 <i class="bi bi-file-text me-2 text-muted"></i>
                                                 <span x-text="result.title"></span>
@@ -84,67 +166,62 @@
                         <div class="navbar-nav flex-row">
                             <!-- Theme Toggle with Alpine.js -->
                             <div x-data="themeSwitch">
-                                <button class="btn btn-outline-secondary me-2" 
-                                        type="button" 
-                                        @click="toggle()"
-                                        data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom"
-                                        title="Toggle theme">
+                                <button class="btn btn-outline-secondary me-2" type="button" @click="toggle()"
+                                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Toggle theme">
                                     <i class="bi bi-sun-fill" x-show="currentTheme === 'light'"></i>
                                     <i class="bi bi-moon-fill" x-show="currentTheme === 'dark'"></i>
                                 </button>
                             </div>
 
                             <!-- Fullscreen Toggle -->
-                            <button class="btn btn-outline-secondary me-2" 
-                                    type="button" 
-                                    data-fullscreen-toggle
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="bottom"
-                                    title="Toggle fullscreen">
+                            <button class="btn btn-outline-secondary me-2" type="button" data-fullscreen-toggle
+                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Toggle fullscreen">
                                 <i class="bi bi-arrows-fullscreen icon-hover"></i>
                             </button>
 
                             <!-- Notifications -->
                             <div class="dropdown me-2">
-                                <button class="btn btn-outline-secondary position-relative" 
-                                        type="button" 
-                                        data-bs-toggle="dropdown" 
-                                        aria-expanded="false">
+                                <button class="btn btn-outline-secondary position-relative" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-bell"></i>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                         3
                                     </span>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end">
-                                    <li><h6 class="dropdown-header">Notifications</h6></li>
+                                    <li>
+                                        <h6 class="dropdown-header">Notifications</h6>
+                                    </li>
                                     <li><a class="dropdown-item" href="#">New user registered</a></li>
                                     <li><a class="dropdown-item" href="#">Server status update</a></li>
                                     <li><a class="dropdown-item" href="#">New message received</a></li>
-                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
                                     <li><a class="dropdown-item text-center" href="#">View all notifications</a></li>
                                 </ul>
                             </div>
 
                             <!-- User Menu -->
                             <div class="dropdown">
-                                <button class="btn btn-outline-secondary d-flex align-items-center" 
-                                        type="button" 
-                                        data-bs-toggle="dropdown" 
-                                        aria-expanded="false">
-                                    <img src="/assets/images/avatar-placeholder.svg" 
-                                         alt="User Avatar" 
-                                         width="24" 
-                                         height="24" 
-                                         class="rounded-circle me-2">
+                                <button class="btn btn-outline-secondary d-flex align-items-center" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="/assets/images/avatar-placeholder.svg" alt="User Avatar" width="24"
+                                        height="24" class="rounded-circle me-2">
                                     <span class="d-none d-md-inline">John Doe</span>
                                     <i class="bi bi-chevron-down ms-1"></i>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end">
-                                    <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Settings</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Settings</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#"><i
+                                                class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -164,7 +241,9 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="https://dashboardpack.com/?utm_source=metis&amp;utm_medium=sidebar&amp;utm_campaign=go_pro_metis" target="_blank" rel="noopener">
+                                <a class="nav-link"
+                                    href="https://dashboardpack.com/?utm_source=metis&amp;utm_medium=sidebar&amp;utm_campaign=go_pro_metis"
+                                    target="_blank" rel="noopener">
                                     <i class="bi bi-rocket-takeoff"></i>
                                     <span>Go Pro</span>
                                     <span class="badge bg-danger rounded-pill ms-auto">Hot</span>
@@ -190,9 +269,15 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" href="./orders">
-                                    <i class="bi bi-bag-check"></i>
-                                    <span>Orders</span>
+                                    <i class="bi bi-heart ms-2"></i>
+                                    <span>Dons</span>
                                     <span class="badge bg-primary rounded-pill ms-auto">Active</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./help">
+                                    <i class="bi bi-map ms-2"></i>
+                                    <span>Help & Support</span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -203,7 +288,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#elementsSubmenu" aria-expanded="false">
+                                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#elementsSubmenu"
+                                    aria-expanded="false">
                                     <i class="bi bi-puzzle"></i>
                                     <span>Elements</span>
                                     <span class="badge bg-primary rounded-pill ms-2 me-2">New</span>
@@ -304,7 +390,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./help">
-                                    <i class="bi bi-question-circle"></i>
+                                    <i class="bi bi-map ms-2"></i>
                                     <span>Help & Support</span>
                                 </a>
                             </li>
@@ -314,345 +400,57 @@
             </aside>
 
             <!-- Sidebar Backdrop (mobile overlay) -->
-        <div class="sidebar-backdrop" aria-hidden="true"></div>
+            <div class="sidebar-backdrop" aria-hidden="true"></div>
             <!-- Main Content -->
             <main class="admin-main">
                 <div class="container-fluid p-4 p-lg-5">
-                    
+
                     <!-- Page Header -->
                     <div class="d-flex justify-content-between align-items-center mb-4 mb-lg-5">
                         <div>
-                            <h1 class="h3 mb-0">Order Management</h1>
-                            <p class="text-muted mb-0">Track orders, manage fulfillment, and analyze sales</p>
+                            <h1 class="h3 mb-0">Don Management</h1>
+                            <p class="text-muted mb-0">Faites un don pour soutenir notre cause</p>
                         </div>
-                        <div class="d-flex gap-2">
-                            <button type="button" class="btn btn-outline-secondary" @click="exportOrders()">
-                                <i class="bi bi-download me-2"></i>Export
-                            </button>
-                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#bulkUpdateModal">
-                                <i class="bi bi-arrow-repeat me-2"></i>Bulk Update
-                            </button>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#orderModal">
-                                <i class="bi bi-plus-lg me-2"></i>New Order
-                            </button>
-                        </div>
+
                     </div>
 
-                    <!-- Order Management Container -->
-                    <div x-data="orderTable" x-init="init()">
-                        
-                        <!-- Order Stats Widgets -->
-                        <div class="row g-4 g-lg-5 mb-5">
-                            <div class="col-xl-3 col-lg-6">
-                                <div class="card stats-card">
-                                    <div class="card-body p-3 p-lg-4">
-                                        <div class="d-flex align-items-center">
-                                            <div class="stats-icon bg-primary bg-opacity-10 text-primary me-3">
-                                                <i class="bi bi-bag-check"></i>
-                                            </div>
-                                            <div>
-                                                <h6 class="mb-0 text-muted">Total Orders</h6>
-                                                <h3 class="mb-0" x-text="stats.total"></h3>
-                                                <small class="text-success">
-                                                    <i class="bi bi-arrow-up"></i> +12% from last month
-                                                </small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6">
-                                <div class="card stats-card">
-                                    <div class="card-body p-3 p-lg-4">
-                                        <div class="d-flex align-items-center">
-                                            <div class="stats-icon bg-warning bg-opacity-10 text-warning me-3">
-                                                <i class="bi bi-clock"></i>
-                                            </div>
-                                            <div>
-                                                <h6 class="mb-0 text-muted">Pending</h6>
-                                                <h3 class="mb-0" x-text="stats.pending"></h3>
-                                                <small class="text-warning">
-                                                    <i class="bi bi-exclamation-circle"></i> Needs attention
-                                                </small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6">
-                                <div class="card stats-card">
-                                    <div class="card-body p-3 p-lg-4">
-                                        <div class="d-flex align-items-center">
-                                            <div class="stats-icon bg-info bg-opacity-10 text-info me-3">
-                                                <i class="bi bi-truck"></i>
-                                            </div>
-                                            <div>
-                                                <h6 class="mb-0 text-muted">Shipped</h6>
-                                                <h3 class="mb-0" x-text="stats.shipped"></h3>
-                                                <small class="text-info">
-                                                    <i class="bi bi-arrow-right"></i> In transit
-                                                </small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6">
-                                <div class="card stats-card">
-                                    <div class="card-body p-3 p-lg-4">
-                                        <div class="d-flex align-items-center">
-                                            <div class="stats-icon bg-success bg-opacity-10 text-success me-3">
-                                                <i class="bi bi-currency-dollar"></i>
-                                            </div>
-                                            <div>
-                                                <h6 class="mb-0 text-muted">Revenue</h6>
-                                                <h3 class="mb-0" x-text="`$${stats.revenue.toLocaleString()}`"></h3>
-                                                <small class="text-success">
-                                                    <i class="bi bi-arrow-up"></i> +8% from last week
-                                                </small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Charts Row -->
-                        <div class="row g-4 g-lg-5 mb-5">
-                            <!-- Order Trends Chart -->
-                            <div class="col-lg-8">
-                                <div class="card h-100">
-                                    <div class="card-header d-flex justify-content-between align-items-center">
-                                        <h5 class="card-title mb-0">Order Trends</h5>
-                                        <div class="btn-group btn-group-sm" role="group">
-                                            <input type="radio" class="btn-check" name="trendsPeriod" id="trends7d" autocomplete="off" checked>
-                                            <label class="btn btn-outline-secondary" for="trends7d">7D</label>
-                                            <input type="radio" class="btn-check" name="trendsPeriod" id="trends30d" autocomplete="off">
-                                            <label class="btn btn-outline-secondary" for="trends30d">30D</label>
-                                            <input type="radio" class="btn-check" name="trendsPeriod" id="trends90d" autocomplete="off">
-                                            <label class="btn btn-outline-secondary" for="trends90d">90D</label>
-                                        </div>
-                                    </div>
-                                    <div class="card-body p-3 p-lg-4">
-                                        <div id="orderTrendsChart" style="height: 300px;"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Order Status Distribution -->
-                            <div class="col-lg-4">
-                                <div class="card h-100">
-                                    <div class="card-header">
-                                        <h5 class="card-title mb-0">Order Status</h5>
-                                    </div>
-                                    <div class="card-body p-3 p-lg-4">
-                                        <div id="statusChart" style="height: 200px;"></div>
-                                        <div class="mt-3">
-                                            <template x-for="status in statusStats" :key="status.name">
-                                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                                    <span class="small" x-text="status.name"></span>
-                                                    <div class="d-flex align-items-center">
-                                                        <span class="small text-muted me-2" x-text="`${status.percentage}%`"></span>
-                                                        <span class="small fw-medium" x-text="status.count"></span>
-                                                    </div>
-                                                </div>
-                                            </template>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Orders Table -->
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <h5 class="card-title mb-0">Orders</h5>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="d-flex gap-2">
-                                            <!-- Search -->
-                                            <div class="position-relative">
-                                                <input type="search" 
-                                                       class="form-control form-control-sm" 
-                                                       placeholder="Search orders..."
-                                                       x-model="searchQuery"
-                                                       @input="filterOrders()"
-                                                       style="width: 200px;">
-                                                <i class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-2 text-muted"></i>
-                                            </div>
-                                            
-                                            <!-- Status Filter -->
-                                            <select class="form-select form-select-sm" 
-                                                    x-model="statusFilter" 
-                                                    @change="filterOrders()"
-                                                    style="width: 150px;">
-                                                <option value="">All Status</option>
-                                                <option value="pending">Pending</option>
-                                                <option value="processing">Processing</option>
-                                                <option value="shipped">Shipped</option>
-                                                <option value="delivered">Delivered</option>
-                                                <option value="cancelled">Cancelled</option>
-                                            </select>
-                                            
-                                            <!-- Date Range -->
-                                            <select class="form-select form-select-sm" 
-                                                    x-model="dateFilter" 
-                                                    @change="filterOrders()"
-                                                    style="width: 150px;">
-                                                <option value="">All Dates</option>
-                                                <option value="today">Today</option>
-                                                <option value="week">This Week</option>
-                                                <option value="month">This Month</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body p-0">
-                                <!-- Bulk Actions Bar -->
-                                <div class="bulk-actions-bar p-3 bg-light border-bottom" x-show="selectedOrders.length > 0" x-transition>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="text-muted">
-                                            <span x-text="selectedOrders.length"></span> order(s) selected
-                                        </span>
-                                        <div class="d-flex gap-2">
-                                            <button class="btn btn-sm btn-outline-secondary" @click="bulkAction('processing')">
-                                                <i class="bi bi-arrow-clockwise me-1"></i>Mark Processing
-                                            </button>
-                                            <button class="btn btn-sm btn-outline-info" @click="bulkAction('shipped')">
-                                                <i class="bi bi-truck me-1"></i>Mark Shipped
-                                            </button>
-                                            <button class="btn btn-sm btn-outline-success" @click="bulkAction('delivered')">
-                                                <i class="bi bi-check-circle me-1"></i>Mark Delivered
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Table -->
-                                <div class="table-responsive">
-                                    <table class="table table-hover mb-0">
-                                        <thead class="table-light">
-                                            <tr>
-                                                <th style="width: 40px;">
-                                                    <input type="checkbox" 
-                                                           class="form-check-input" 
-                                                           @change="toggleAll($event.target.checked)"
-                                                           :checked="selectedOrders.length === filteredOrders.length && filteredOrders.length > 0">
-                                                </th>
-                                                <th @click="sortBy('orderNumber')" class="sortable">Order #</th>
-                                                <th>Customer</th>
-                                                <th>Items</th>
-                                                <th @click="sortBy('total')" class="sortable">Total</th>
-                                                <th>Status</th>
-                                                <th @click="sortBy('orderDate')" class="sortable">Date</th>
-                                                <th style="width: 120px;">Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <template x-for="order in paginatedOrders" :key="order.id">
-                                                <tr>
-                                                    <td>
-                                                        <input type="checkbox" 
-                                                               class="form-check-input" 
-                                                               :value="order.id"
-                                                               x-model="selectedOrders">
-                                                    </td>
-                                                    <td>
-                                                        <div class="fw-medium" x-text="order.orderNumber"></div>
-                                                        <small class="text-muted" x-text="'ID: ' + order.id"></small>
-                                                    </td>
-                                                    <td>
-                                                        <div class="order-customer">
-                                                            <img :src="order.customer.avatar" 
-                                                                 class="customer-avatar" 
-                                                                 :alt="order.customer.name">
-                                                            <div>
-                                                                <div class="fw-medium" x-text="order.customer.name"></div>
-                                                                <small class="text-muted" x-text="order.customer.email"></small>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="order-items">
-                                                            <div x-text="order.itemCount + ' item' + (order.itemCount > 1 ? 's' : '')"></div>
-                                                            <small class="text-muted" x-text="order.items[0].name + (order.itemCount > 1 ? ' +' + (order.itemCount - 1) + ' more' : '')"></small>
-                                                        </div>
-                                                    </td>
-                                                    <td class="fw-medium" x-text="`$${order.total}`"></td>
-                                                    <td>
-                                                        <span class="order-status" 
-                                                              :class="{
-                                                                  'status-pending': order.status === 'pending',
-                                                                  'status-processing': order.status === 'processing',
-                                                                  'status-shipped': order.status === 'shipped',
-                                                                  'status-delivered': order.status === 'delivered',
-                                                                  'status-cancelled': order.status === 'cancelled'
-                                                              }"
-                                                              x-text="order.status.charAt(0).toUpperCase() + order.status.slice(1)"></span>
-                                                    </td>
-                                                    <td x-text="order.orderDate"></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" 
-                                                                    type="button" 
-                                                                    data-bs-toggle="dropdown">
-                                                                <i class="bi bi-three-dots"></i>
-                                                            </button>
-                                                            <ul class="dropdown-menu">
-                                                                <li><a class="dropdown-item" href="#" @click="viewOrder(order)">
-                                                                    <i class="bi bi-eye me-2"></i>View Details
-                                                                </a></li>
-                                                                <li><a class="dropdown-item" href="#" @click="trackOrder(order)">
-                                                                    <i class="bi bi-truck me-2"></i>Track Order
-                                                                </a></li>
-                                                                <li><a class="dropdown-item" href="#" @click="printInvoice(order)">
-                                                                    <i class="bi bi-printer me-2"></i>Print Invoice
-                                                                </a></li>
-                                                                <li><hr class="dropdown-divider"></li>
-                                                                <li><a class="dropdown-item text-danger" href="#" @click="cancelOrder(order)">
-                                                                    <i class="bi bi-x-circle me-2"></i>Cancel Order
-                                                                </a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </template>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <!-- Pagination -->
-                                <div class="d-flex justify-content-between align-items-center p-3">
-                                    <div class="text-muted">
-                                        Showing <span x-text="(currentPage - 1) * itemsPerPage + 1"></span> to 
-                                        <span x-text="Math.min(currentPage * itemsPerPage, filteredOrders.length)"></span> of 
-                                        <span x-text="filteredOrders.length"></span> results
-                                    </div>
-                                    <nav>
-                                        <ul class="pagination pagination-sm mb-0">
-                                            <li class="page-item" :class="{ 'disabled': currentPage === 1 }">
-                                                <a class="page-link" href="#" @click.prevent="goToPage(currentPage - 1)">Previous</a>
-                                            </li>
-                                            <template x-for="(page, index) in visiblePages" :key="`page-${index}`">
-                                                <li class="page-item" :class="{ 'active': page === currentPage }">
-                                                    <a class="page-link" href="#" @click.prevent="page !== '...' && goToPage(page)" x-text="page"></a>
-                                                </li>
-                                            </template>
-                                            <li class="page-item" :class="{ 'disabled': currentPage === totalPages }">
-                                                <a class="page-link" href="#" @click.prevent="goToPage(currentPage + 1)">Next</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div> <!-- End Order Management Container -->
-
                 </div>
+                
+                    <div class="contact-card text-center">
+                        <!-- Icône enveloppe (tu peux la remplacer par Bootstrap Icons ou une image) -->
+                        <div class="heart-icon"><i class="bi bi-heart ms-2"></i></div>
+
+                        <h4 class="mb-4">Contact us</h4>
+                        <p class="mb-4">Fill in the form below to send us a message:</p>
+
+                        <form>
+                            <div class="mb-3">
+                                <label for="Categorie" class="form-label visually-hidden">Categorie</label>
+                                <input type="text" class="form-control" name="categorie" id="Categorie" placeholder="Categorie..." required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="dons" class="form-label visually-hidden">Dons</label>
+                                <input type="text" class="form-control" name="dons" id="dons" placeholder="Dons..." required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="quantite" class="form-label visually-hidden">Quantité</label>
+                                <input type="text" class="form-control" name="quantite" id="quantite" placeholder="Quantité..." required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="prix_unitaire" class="form-label visually-hidden">Prix_Unitaire</label>
+                                <input type="text" class="form-control" name="prix_unitaire" id="prix_unitaire" placeholder="Prix Unitaire..." required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="date_dons" class="form-label visually-hidden">Date_dons</label>
+                                <input type="text" class="form-control" name="date_dons" id="date_dons" placeholder="Date des dons..." required>
+                            </div>
+                            <button type="submit" class="btn btn-send w-100">Donnez</button>
+                        </form>
+                    </div>
             </main>
 
             <!-- Footer -->
@@ -663,7 +461,8 @@
                             <p class="mb-0 text-muted">© ETU004608 ETU003992 ETU004372</p>
                         </div>
                         <div class="col-md-6 text-md-end">
-                            <p class="mb-0 text-muted">Built with Bootstrap 5 by <a href="https://colorlib.com/" target="_blank" rel="noopener noreferrer">Colorlib</a></p>
+                            <p class="mb-0 text-muted">Built with Bootstrap 5 by <a href="https://colorlib.com/"
+                                    target="_blank" rel="noopener noreferrer">Colorlib</a></p>
                         </div>
                     </div>
                 </div>
@@ -712,7 +511,7 @@
                                 </table>
                             </div>
                         </div>
-                        
+
                         <!-- Order Timeline -->
                         <div class="col-lg-4">
                             <h6 class="mb-3">Order Timeline</h6>
@@ -789,4 +588,5 @@
 
     <!-- Main App Script -->
 </body>
+
 </html>
