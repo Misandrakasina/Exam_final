@@ -29,6 +29,8 @@ CREATE TABLE IF NOT EXISTS `BNGRC_besoin` (
     FOREIGN KEY ('id_ville') REFERENCES `BNGRC_ville`('id_ville'),
     'id_type_besoin' INT NOT NULL,
     FOREIGN KEY ('id_type_besoin') REFERENCES `BNGRC_type_besoin`('id_type_besoin'),
+    'prix_unitaire' DECIMAL(10, 2) NOT NULL,
+    'quantite' INT NOT NULL,
     PRIMARY KEY ('id_besoin')
 );
 
@@ -36,8 +38,10 @@ CREATE TABLE IF NOT EXISTS `BNGRC_dons` (
     'id_dons' INT NOT NULL AUTO_INCREMENT,  
     'date_dons' DATE NOT NULL DEFAULT (CURRENT_DATE),
     'id_type_besoin' INT NOT NULL,
-    FOREIGN KEY ('id_type_besoin') REFERENCES `BNGRC_type_besoin`('id_type_besoin'),
-    PRIMARY KEY ('id_dons')
+    FOREIGN KEY (`id_type_besoin`) REFERENCES `BNGRC_type_besoin`(`id_type_besoin`),
+    `quantite_total` INT NOT NULL,
+    `date_dons` DATE NOT NULL DEFAULT (CURRENT_DATE),
+    PRIMARY KEY (`id_dons`)
 );
 
 CREATE TABLE IF NOT EXISTS `BNGRC_categorie` (
@@ -60,5 +64,7 @@ CREATE TABLE IF NOT EXISTS `BNGRC_attribution` (
     FOREIGN KEY (`id_besoin`) REFERENCES `BNGRC_besoin`(`id_besoin`),
     `id_dons` INT NOT NULL,
     FOREIGN KEY (`id_dons`) REFERENCES `BNGRC_dons`(`id_dons`),
+    `date_attribution` DATE NOT NULL DEFAULT (CURRENT_DATE),
+    `quantite_attribution` INT NOT NULL,
     PRIMARY KEY (`id_attribution`)
 );
