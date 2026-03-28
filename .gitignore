@@ -1,0 +1,5 @@
+app/config/config.php
+app/config/*.php          # ← attention : ça ignore TOUS les .php dans config/
+# ou mieux, seulement les sensibles :
+app/config/config*.php
+app/config/database*.php

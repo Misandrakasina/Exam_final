@@ -1,0 +1,13 @@
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mindex 80d0229..19cc6ff 100644[m
+[1m--- a/.gitignore[m
+[1m+++ b/.gitignore[m
+[36m@@ -2,4 +2,5 @@[m [mapp/config/config.php[m
+ app/config/*.php          # ← attention : ça ignore TOUS les .php dans config/[m
+ # ou mieux, seulement les sensibles :[m
+ app/config/config*.php[m
+[31m-app/config/database*.php[m
+\ No newline at end of file[m
+[32m+[m[32mapp/config/database*.php[m
+[32m+[m[32m/opt/lampp/htdocs/s3/Exam_final/vendor/tracy/tracy/composer.json[m
+\ No newline at end of file[m
